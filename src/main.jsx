@@ -1642,8 +1642,17 @@ export default function App() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="modal-top">
-                <div className="modal-project-badge">
-                  <span>{selectedProject.category}</span>
+                <div className="modal-brand-header">
+                  {selectedProject.logoUrl && (
+                    <img
+                      src={selectedProject.logoUrl}
+                      alt={selectedProject.name}
+                      className="modal-client-logo"
+                    />
+                  )}
+                  <div className="modal-project-badge">
+                    <span>{selectedProject.category}</span>
+                  </div>
                 </div>
                 <button
                   onClick={() => setSelectedProject(null)}
