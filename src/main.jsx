@@ -47,6 +47,14 @@ import {
 } from 'lucide-react'
 import './styles.css'
 
+// Helper to resolve public assets correctly on GitHub Pages or custom domain
+const toAsset = (path) => {
+  const base = import.meta.env.BASE_URL || '/'
+  const cleanBase = base.endsWith('/') ? base : `${base}/`
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path
+  return `${cleanBase}${cleanPath}`
+}
+
 // Featured Clients for Infinite Logo Slider
 const CLIENTS_SLIDER = [
   {
@@ -56,7 +64,7 @@ const CLIENTS_SLIDER = [
     url: 'https://scan2move.store/',
     badge: 'Live Platform',
     icon: QrCode,
-    logoUrl: '/clients/scan-to-move.jpg',
+    logoUrl: toAsset('clients/scan-to-move.jpg'),
   },
   {
     name: 'Anime Express TV',
@@ -65,7 +73,7 @@ const CLIENTS_SLIDER = [
     url: 'https://animeexpresstv.com/',
     badge: 'Enterprise Cloud',
     icon: Tv,
-    logoUrl: '/clients/anime-express-tv-icon.webp',
+    logoUrl: toAsset('clients/anime-express-tv-icon.webp'),
   },
   {
     name: 'FileShift: Send Files Offline',
@@ -74,7 +82,7 @@ const CLIENTS_SLIDER = [
     url: 'https://apps.apple.com/nl/app/fileshift-send-files-offline/id6759545902?l=en-GB',
     badge: 'iOS App Store',
     icon: Share2,
-    logoUrl: '/clients/fileshift.jpg',
+    logoUrl: toAsset('clients/fileshift.jpg'),
   },
   {
     name: 'VoiceAI IoT Engine',
@@ -83,7 +91,7 @@ const CLIENTS_SLIDER = [
     url: '#portfolio',
     badge: 'IoT Voice AI',
     icon: Mic,
-    logoUrl: '/clients/voiceai-iot.jpg',
+    logoUrl: toAsset('clients/voiceai-iot.jpg'),
   },
   {
     name: 'CIEL Tech',
@@ -92,7 +100,7 @@ const CLIENTS_SLIDER = [
     url: '#portfolio',
     badge: 'Cloud Systems',
     icon: Server,
-    logoUrl: '/clients/ciel-tech.jpg',
+    logoUrl: toAsset('clients/ciel-tech.jpg'),
   },
   {
     name: 'Makraise Studios',
@@ -101,7 +109,7 @@ const CLIENTS_SLIDER = [
     url: '#portfolio',
     badge: 'Game Studio',
     icon: Gamepad2,
-    logoUrl: '/clients/makraise.jpg',
+    logoUrl: toAsset('clients/makraise.jpg'),
   },
 ]
 
@@ -183,7 +191,7 @@ const PORTFOLIO_PROJECTS = [
     category: 'IoT & Connected Systems',
     tag: 'Smart Vehicle QR Platform',
     liveUrl: 'https://scan2move.store/',
-    logoUrl: '/clients/scan-to-move.jpg',
+    logoUrl: toAsset('clients/scan-to-move.jpg'),
     monogram: 'SM',
     metric: '100% Privacy',
     metricLabel: 'Zero phone number disclosure',
@@ -198,7 +206,7 @@ const PORTFOLIO_PROJECTS = [
     category: 'Digital Media & Web Apps',
     tag: 'Complete Cloud Architecture',
     liveUrl: 'https://animeexpresstv.com/',
-    logoUrl: '/clients/anime-express-tv-icon.webp',
+    logoUrl: toAsset('clients/anime-express-tv-icon.webp'),
     monogram: 'AE',
     metric: '99.99% Uptime',
     metricLabel: 'Global streaming cloud infrastructure',
@@ -213,7 +221,7 @@ const PORTFOLIO_PROJECTS = [
     category: 'Mobile Apps',
     tag: 'Apple App Store iOS App',
     liveUrl: 'https://apps.apple.com/nl/app/fileshift-send-files-offline/id6759545902?l=en-GB',
-    logoUrl: '/clients/fileshift.jpg',
+    logoUrl: toAsset('clients/fileshift.jpg'),
     monogram: 'FS',
     metric: '200x Faster',
     metricLabel: 'Offline P2P transfer vs Bluetooth',
@@ -228,7 +236,7 @@ const PORTFOLIO_PROJECTS = [
     category: 'IoT & Connected Systems',
     tag: 'Voice Assistant Powered Software',
     liveUrl: '#contact',
-    logoUrl: '/clients/voiceai-iot.jpg',
+    logoUrl: toAsset('clients/voiceai-iot.jpg'),
     monogram: 'VA',
     metric: '< 180ms',
     metricLabel: 'On-device voice-to-intent latency',
@@ -243,7 +251,7 @@ const PORTFOLIO_PROJECTS = [
     category: 'Enterprise Web & AI',
     tag: 'Enterprise Cloud Architecture',
     liveUrl: '#portfolio',
-    logoUrl: '/clients/ciel-tech.jpg',
+    logoUrl: toAsset('clients/ciel-tech.jpg'),
     monogram: 'CT',
     metric: '99.99% Uptime',
     metricLabel: 'High-availability microservices',
@@ -258,7 +266,7 @@ const PORTFOLIO_PROJECTS = [
     category: 'Game Development',
     tag: 'Interactive Game Tech',
     liveUrl: '#portfolio',
-    logoUrl: '/clients/makraise.jpg',
+    logoUrl: toAsset('clients/makraise.jpg'),
     monogram: 'MS',
     metric: '60 FPS Native',
     metricLabel: 'WebGL & Unity optimization',
@@ -316,7 +324,7 @@ const TESTIMONIALS = [
     author: 'Founder',
     role: 'Product Lead',
     company: 'Scan to Move',
-    logoUrl: '/clients/scan-to-move.jpg',
+    logoUrl: toAsset('clients/scan-to-move.jpg'),
     stars: 5,
   },
   {
@@ -324,7 +332,7 @@ const TESTIMONIALS = [
     author: 'Architecture Team',
     role: 'Infrastructure Lead',
     company: 'Anime Express TV',
-    logoUrl: '/clients/anime-express-tv-icon.webp',
+    logoUrl: toAsset('clients/anime-express-tv-icon.webp'),
     stars: 5,
   },
   {
@@ -332,7 +340,7 @@ const TESTIMONIALS = [
     author: 'Engineering Lead',
     role: 'Mobile Product Team',
     company: 'FileShift',
-    logoUrl: '/clients/fileshift.jpg',
+    logoUrl: toAsset('clients/fileshift.jpg'),
     stars: 5,
   },
   {
@@ -340,7 +348,7 @@ const TESTIMONIALS = [
     author: 'Hardware Architect',
     role: 'IoT Systems',
     company: 'VoiceAI IoT',
-    logoUrl: '/clients/voiceai-iot.jpg',
+    logoUrl: toAsset('clients/voiceai-iot.jpg'),
     stars: 5,
   },
 ]
@@ -446,8 +454,8 @@ export default function App() {
   const activeBudgetConfig = BUDGET_OPTIONS.find((b) => b.value === form.budget) || BUDGET_OPTIONS[1]
 
   // Dynamic logos depending on theme
-  const brandLogoUrl = theme === 'light' ? '/company-logo-emerald.jpg' : '/company-logo.jpg'
-  const brandMarkUrl = theme === 'light' ? '/company-mark-emerald.jpg' : '/company-mark.jpg'
+  const brandLogoUrl = theme === 'light' ? toAsset('company-logo-emerald.jpg') : toAsset('company-logo.jpg')
+  const brandMarkUrl = theme === 'light' ? toAsset('company-mark-emerald.jpg') : toAsset('company-mark.jpg')
 
   // Form submission handler
   const handleSubmit = (e) => {
