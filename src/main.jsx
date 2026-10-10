@@ -43,7 +43,9 @@ import {
   Tv,
   Share2,
   Mic,
-  Server
+  Server,
+  RotateCcw,
+  MessageCircle
 } from 'lucide-react'
 import './styles.css'
 
@@ -118,12 +120,12 @@ const SERVICES = [
   {
     id: 'ai',
     number: '01',
-    title: 'AI Solutions',
-    short: 'Intelligent automation & machine learning pipelines',
-    desc: 'From custom model integration to computer vision and autonomous agentic workflows. We build intelligent software backends that solve complex operational problems.',
+    title: 'AI & Custom Model Training',
+    short: 'Proprietary dataset pipelines & fine-tuned LLMs',
+    desc: 'From custom model training on proprietary domain datasets (LoRA/QLoRA, RLHF) to computer vision and autonomous agentic workflows. We build private neural weights and high-throughput inference backends that solve complex operational problems.',
     icon: Sparkles,
-    tags: ['Machine Learning', 'Computer Vision', 'Agentic Workflows', 'Vector DBs / RAG', 'Predictive APIs'],
-    deliverable: 'Autonomous AI pipelines & custom models',
+    tags: ['Custom Model Training', 'Proprietary Datasets & LoRA', 'Grok-Style Reasoning', 'Agentic Workflows', 'Vector DBs / RAG'],
+    deliverable: 'Autonomous AI pipelines & private custom model weights',
     badge: 'Popular',
   },
   {
@@ -162,29 +164,59 @@ const SERVICES = [
   {
     id: 'iot',
     number: '05',
-    title: 'IoT & Connected Systems',
-    short: 'Hardware-to-cloud telemetry & device networks',
-    desc: 'Bridging physical hardware and digital platforms. Real-time telemetry streaming, firmware-to-cloud communication, sensor edge processing, and hardware fleet dashboards.',
+    title: 'Physical Hardware & Wearables IoT',
+    short: 'Smart Necklaces, Bands, Firmware & AI Monitoring',
+    desc: 'Engineering physical smart hardware and companion software. Custom smart necklaces and biometric wristbands with Nordic BLE/RTOS firmware, optical PPG biosensors, edge TinyML inference, and continuous cloud monitoring dashboards.',
     icon: Network,
-    tags: ['MQTT & WebSockets', 'Hardware Firmware', 'Edge Computing', 'Sensor Dashboards', 'OTA Updates'],
-    deliverable: 'Bi-directional IoT telemetry hub & fleet controller',
-    badge: 'Connected IoT',
+    tags: ['Smart Necklaces & Bands', 'Nordic BLE / RTOS Firmware', 'Edge Vital Monitoring', 'Hardware PCB & Enclosures', 'MQTT Telemetry Platform'],
+    deliverable: 'Physical hardware prototypes, embedded firmware & live monitoring portal',
+    badge: 'Hardware & IoT',
   },
   {
     id: 'chatbots',
     number: '06',
-    title: 'Chatbots & Automation',
-    short: 'Conversational copilots & workflow automations',
-    desc: 'Context-aware conversational agents for customer support, CRM lead capture, internal knowledge retrieval, and automated multi-step operational workflows.',
+    title: 'Grok-Bot & Conversational AI',
+    short: 'Multi-turn autonomous bots & workflow copilots',
+    desc: 'Enterprise Grok-powered conversational agents fine-tuned on your custom datasets with multi-turn reasoning, real-time function calling, CRM automation, and 100% private data isolation.',
     icon: Bot,
-    tags: ['Slack / WhatsApp Bots', 'CRM Automation', 'Function Calling', 'RAG Knowledge Bases', 'Multi-turn Dialog'],
-    deliverable: 'Omnichannel conversational bot & webhook integrations',
-    badge: 'Automation',
+    tags: ['Grok-Style Bot Architecture', 'Custom Dataset Fine-Tuning', 'Multi-Turn Dialog & Tools', 'CRM & Support Automation', 'Private VPC Isolation'],
+    deliverable: 'Omnichannel Grok-powered bot & webhook integrations',
+    badge: 'Grok AI',
   },
 ]
 
 // Portfolio Projects with real client links
 const PORTFOLIO_PROJECTS = [
+  {
+    id: 'aegis-wearables',
+    name: 'Aegis Smart Necklaces & Bands',
+    category: 'IoT & Connected Systems',
+    tag: 'Physical Hardware & AI Vital Monitoring',
+    imageUrl: toAsset('wearables-hardware-necklace-band.jpg'),
+    monogram: 'AW',
+    metric: '14-Day Battery',
+    metricLabel: '< 5ms on-device edge anomaly detection',
+    shortDesc: 'Physical hardware engineering and companion software for smart AI necklaces and biometric wristbands. Real-time PPG biosensors, on-device TinyML inference, and clinical monitoring dashboards.',
+    fullDesc: 'Turnkey physical hardware and cloud software architecture. Designed custom rigid-flex PCBs around Nordic nRF5340 dual-core BLE 5.3 SoCs with dual-wavelength optical PPG biosensors, 6-axis IMUs (Bosch BMI270), skin-temperature thermistors, and Qi wireless charging. Embedded Zephyr RTOS firmware runs on-device TinyML models to continuously classify arrhythmias, SpO2 desaturation, stress response, and fall detection. Streams encrypted telemetry to a real-time clinical monitoring platform with sub-100ms push alerts.',
+    technologies: ['Nordic nRF5340 / Zephyr RTOS', 'Optical PPG & 6-Axis IMU', 'Edge TinyML On-Device', 'BLE 5.3 & MQTT Telemetry', 'Clinical Dashboard & React Native'],
+    outcome: '14-day battery life per charge, 99.4% arrhythmia detection accuracy, and sub-100ms emergency alert propagation.',
+    liveUrl: '#contact',
+  },
+  {
+    id: 'grok-bot-engine',
+    name: 'Grok-Bot Enterprise AI',
+    category: 'Chatbots & Automation',
+    tag: 'Custom Model Training & Dataset Suite',
+    imageUrl: toAsset('grok-bot-custom-model-training.jpg'),
+    monogram: 'GB',
+    metric: '4.2x Faster',
+    metricLabel: 'LoRA fine-tuned on custom datasets',
+    shortDesc: 'Enterprise Grok-style AI chatbot engine fine-tuned on proprietary domain datasets with multi-turn reasoning, tool calling, and 100% private VPC weights.',
+    fullDesc: 'End-to-end custom dataset curation and fine-tuning suite. Processed over 20M proprietary domain tokens with automated deduplication, synthetic Q&A generation, and DPO alignment. Fine-tuned custom Grok-style weights using parameter-efficient LoRA/QLoRA on a private GPU cluster. Deployed with vLLM tensor-parallel inference, multi-turn conversational memory, function calling for backend database execution, and zero data leakage.',
+    technologies: ['PyTorch & vLLM', 'Grok-Style Architecture', 'LoRA / QLoRA Fine-Tuning', 'Custom Dataset Pipelines', 'Multi-Agent Tool Calling'],
+    outcome: 'Zero hallucination on domain benchmarks with 38ms first-token latency across 1.8M enterprise conversation turns.',
+    liveUrl: '#contact',
+  },
   {
     id: 'scan-to-move',
     name: 'Scan to Move',
@@ -405,12 +437,12 @@ const BUDGET_OPTIONS = [
 // Project Type Options
 const PROJECT_TYPES = [
   'MVP / Complete Product',
-  'AI Solutions',
+  'AI & Custom Model Training',
+  'Physical Hardware & Wearables IoT',
+  'Grok-Bot & Conversational AI',
   'Web Applications',
   'Mobile Apps (iOS & Android)',
   'Game Development',
-  'IoT & Connected Systems',
-  'Chatbots & Automation',
 ]
 
 // Timeline Options
@@ -419,6 +451,17 @@ const TIMELINE_OPTIONS = [
   'Standard (6–8 weeks)',
   'Flexible (2–3 months)',
 ]
+
+// Helper to render bold markdown text
+const renderFormattedText = (text) => {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g)
+  return parts.map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return <strong key={i}>{part.slice(2, -2)}</strong>
+    }
+    return part
+  })
+}
 
 export default function App() {
   const [theme, setTheme] = useState('light') // Default: Clean Light Theme!
@@ -506,6 +549,184 @@ export default function App() {
   const mailtoLink = `mailto:hello@intelligencesolutions.dev?subject=${encodeURIComponent(`New MVP Project Inquiry [${form.projectType}] - ${inquiryId || 'New'}`)}&body=${encodeURIComponent(
     `Name: ${form.name}\nEmail: ${form.email}\nCompany: ${form.company || 'Not provided'}\nProject Type: ${form.projectType}\nBudget Range: ${form.budget}\nTarget Timeline: ${form.timeline}\nEstimated Sprint: ${activeBudgetConfig.sprint}\n\nProject Scope & Vision:\n${form.details}`
   )}`
+
+  // Grok-Bot Floating AI Chatbot State (Requested by User)
+  const [isGrokOpen, setIsGrokOpen] = useState(false)
+  const [grokInput, setGrokInput] = useState('')
+  const [isGrokTyping, setIsGrokTyping] = useState(false)
+  const [grokMessages, setGrokMessages] = useState([
+    {
+      id: 'welcome',
+      sender: 'bot',
+      text: "⚡ **Grok-Bot AI Copilot Online.**\n\nI specialize in **Custom Model Training on Proprietary Datasets** and **Physical Wearable Hardware (Smart Necklaces & Biometric Bands)** with edge AI monitoring systems.\n\nAsk me anything or tap a technical shortcut below:",
+      time: 'Just now',
+      actions: [
+        { label: '⌚ Smart Necklace & Band Hardware', type: 'prompt', payload: 'How does the AI smart necklace and biometric band hardware and monitoring software work?' },
+        { label: '🧬 Custom Model Training & Datasets', type: 'prompt', payload: 'How do you train custom models and fine-tune Grok on proprietary datasets?' },
+        { label: '🎯 Calculate MVP Timeline & Budget', type: 'prompt', payload: 'What is the cost and timeline to build a hardware wearable or AI chatbot MVP?' },
+      ],
+    },
+  ])
+
+  // Intelligent Grok-Bot response dispatcher
+  const handleGrokSend = (promptText) => {
+    const query = (promptText || grokInput).trim()
+    if (!query) return
+
+    const userMsg = {
+      id: 'user-' + Date.now(),
+      sender: 'user',
+      text: query,
+      time: 'Now',
+    }
+
+    setGrokMessages((prev) => [...prev, userMsg])
+    setGrokInput('')
+    setIsGrokTyping(true)
+
+    setTimeout(() => {
+      const qLower = query.toLowerCase()
+      let replyText = ''
+      let replyActions = []
+
+      if (
+        qLower.includes('necklace') ||
+        qLower.includes('band') ||
+        qLower.includes('wearable') ||
+        qLower.includes('hardware') ||
+        qLower.includes('sensor') ||
+        qLower.includes('vital') ||
+        qLower.includes('physical') ||
+        qLower.includes('monitoring')
+      ) {
+        replyText = `🔬 **Physical Wearables Hardware & AI Monitoring System:**\n\n` +
+          `**1. Physical Hardware Devices:**\n` +
+          `• **Smart AI Necklace Pendant**: Ultra-compact 28mm CNC titanium casing, dual miniature omnidirectional microphones for ambient acoustic intelligence, optical biosensor aperture, custom rigid-flex multilayer PCB, and Qi wireless inductive charging.\n` +
+          `• **Biometric Smart Band**: Medical-grade fluororubber band, 1.1" curved low-power OLED display, optical dual-wavelength PPG biosensors (HRV, SpO2, pulse wave velocity), 6-axis IMU (accelerometer/gyroscope), skin temperature thermistor, and Nordic nRF5340 dual-core BLE 5.3 SoC.\n\n` +
+          `**2. Embedded Firmware & Edge AI:**\n` +
+          `• Built on **Zephyr RTOS** with dynamic power-gating, achieving **14-day battery life**.\n` +
+          `• On-device **TinyML neural classifier** running locally with **< 5ms latency** to detect cardiac arrhythmias, sleep apnea events, and sudden falls without relying on phone or cloud connection.\n\n` +
+          `**3. Continuous AI Monitoring Software Platform:**\n` +
+          `• Secure BLE 5.3 telemetry streaming to companion iOS & Android native apps.\n` +
+          `• High-concurrency **MQTT / Kafka / TimescaleDB** ingestion handling millions of biometric datapoints.\n` +
+          `• Clinical web dashboard with real-time vital waveforms, automated anomaly threshold alerts (SMS/Push/Email), and HIPAA/GDPR-compliant encryption.`
+
+        replyActions = [
+          { label: '🔍 Inspect Wearables Spec Modal', type: 'modal', payload: 'aegis-wearables' },
+          { label: '📝 Pre-fill Wearables MVP Estimator', type: 'estimator', payload: { type: 'Physical Hardware & Wearables IoT', budget: 'Scale ($30k – $60k)', message: 'Requesting hardware firmware and cloud AI monitoring software for smart necklaces and biometric bands.' } },
+        ]
+      } else if (
+        qLower.includes('custom model') ||
+        qLower.includes('training') ||
+        qLower.includes('dataset') ||
+        qLower.includes('grok') ||
+        qLower.includes('fine-tun') ||
+        qLower.includes('lora') ||
+        qLower.includes('rlhf') ||
+        qLower.includes('llm') ||
+        qLower.includes('weights')
+      ) {
+        replyText = `⚡ **Custom Model Training & Grok-Bot AI Architecture:**\n\n` +
+          `**1. Proprietary Dataset Engineering:**\n` +
+          `• Ingestion & normalization of unstructured enterprise data (docs, CRM logs, voice transcripts, proprietary PDFs).\n` +
+          `• Tokenization benchmarking, MinHash deduplication, and synthetic Q&A generation via teacher models.\n` +
+          `• Curated JSONL datasets with multi-turn conversation trajectories and automated validation benchmarks.\n\n` +
+          `**2. Training & Fine-Tuning Pipeline:**\n` +
+          `• Parameter-efficient **LoRA / QLoRA** or full-weight adaptation on private GPU clusters.\n` +
+          `• **RLHF & DPO (Direct Preference Optimization)** to eliminate hallucinations and enforce domain-specific reasoning.\n` +
+          `• Grok-style multi-turn reasoning with autonomous function/tool calling for backend databases and APIs.\n\n` +
+          `**3. Private Deployment & Security:**\n` +
+          `• High-throughput **vLLM** serving with PagedAttention and Tensor Parallelism (< 35ms first-token latency).\n` +
+          `• 100% private VPC containerization — zero data leakage and 100% IP ownership.`
+
+        replyActions = [
+          { label: '🔍 Inspect Grok-Bot Architecture Modal', type: 'modal', payload: 'grok-bot-engine' },
+          { label: '📝 Pre-fill AI Model in Estimator', type: 'estimator', payload: { type: 'AI & Custom Model Training', budget: 'Growth ($12k – $30k)', message: 'Need custom model fine-tuning on our proprietary business dataset with Grok-style reasoning.' } },
+        ]
+      } else if (
+        qLower.includes('cost') ||
+        qLower.includes('price') ||
+        qLower.includes('budget') ||
+        qLower.includes('timeline') ||
+        qLower.includes('sprint') ||
+        qLower.includes('weeks') ||
+        qLower.includes('mvp')
+      ) {
+        replyText = `📊 **MVP Delivery Timelines & Budget Ranges:**\n\n` +
+          `• **Sprint 1 (Days 1–7):** Discover & Feasibility Blueprint.\n` +
+          `• **Sprint 2 (Days 8–14):** Clickable prototype, data schema & API specs.\n` +
+          `• **Sprints 3–5 (Weeks 3–6):** Agile hardware PCB prototyping / model fine-tuning & staging demo.\n` +
+          `• **Sprint 6 (Weeks 7–8):** Production cloud hardening, telemetry launch & 100% IP handover.\n\n` +
+          `• **Budget Tiers:**\n` +
+          `  - Starter Prototype: **$5,000 – $12,000** (2–4 weeks)\n` +
+          `  - Growth Production MVP: **$12,000 – $30,000** (4–6 weeks)\n` +
+          `  - Scale Hardware / AI Suite: **$30,000 – $60,000** (6–8 weeks)`
+
+        replyActions = [
+          { label: '🎯 Open Live Sprint Estimator', type: 'scroll', payload: 'contact' },
+        ]
+      } else {
+        replyText = `🤝 **Thanks for asking!**\n\nAt Intelligence Solutions, our fractional CTO squad specializes in:\n` +
+          `1. **Custom AI Models & Grok Chatbots** trained on your private datasets.\n` +
+          `2. **Physical Wearables Hardware** (Smart Necklaces & Biometric Bands) with embedded firmware and real-time AI vital monitoring software.\n` +
+          `3. **High-scale cloud platforms** (e.g. Scan to Move, Anime Express TV, FileShift on App Store).\n\n` +
+          `How can we support your product vision?`
+
+        replyActions = [
+          { label: '⌚ Wearables Hardware Details', type: 'prompt', payload: 'How does the smart necklace and band monitoring system work?' },
+          { label: '🧬 Custom Model Training', type: 'prompt', payload: 'How do you train custom models on proprietary datasets?' },
+          { label: '📝 Open MVP Estimator', type: 'scroll', payload: 'contact' },
+        ]
+      }
+
+      setGrokMessages((prev) => [
+        ...prev,
+        {
+          id: 'bot-' + Date.now(),
+          sender: 'bot',
+          text: replyText,
+          time: 'Just now',
+          actions: replyActions,
+        },
+      ])
+      setIsGrokTyping(false)
+    }, 550)
+  }
+
+  // Handle Grok action clicks
+  const handleGrokActionClick = (action) => {
+    if (action.type === 'prompt') {
+      handleGrokSend(action.payload)
+    } else if (action.type === 'modal') {
+      const target = PORTFOLIO_PROJECTS.find((p) => p.id === action.payload)
+      if (target) setSelectedProject(target)
+    } else if (action.type === 'estimator') {
+      if (action.payload.type) setForm((prev) => ({ ...prev, projectType: action.payload.type }))
+      if (action.payload.budget) setForm((prev) => ({ ...prev, budget: action.payload.budget }))
+      if (action.payload.message) setForm((prev) => ({ ...prev, details: action.payload.message }))
+      const el = document.getElementById('contact')
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    } else if (action.type === 'scroll') {
+      const el = document.getElementById(action.payload)
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  const handleResetGrokChat = () => {
+    setGrokMessages([
+      {
+        id: 'welcome-' + Date.now(),
+        sender: 'bot',
+        text: "⚡ **Grok-Bot AI Copilot Reset.**\n\nAsk me about **Custom Model Training on Proprietary Datasets** or **Physical Wearable Hardware (Smart Necklaces & Biometric Bands)** with real-time AI monitoring systems.",
+        time: 'Just now',
+        actions: [
+          { label: '⌚ Smart Necklace & Band Hardware', type: 'prompt', payload: 'How does the AI smart necklace and biometric band hardware and monitoring software work?' },
+          { label: '🧬 Custom Model Training & Datasets', type: 'prompt', payload: 'How do you train custom models and fine-tune Grok on proprietary datasets?' },
+          { label: '🎯 Calculate MVP Timeline & Budget', type: 'prompt', payload: 'What is the cost and timeline to build a hardware wearable or AI chatbot MVP?' },
+        ],
+      },
+    ])
+  }
 
   // Filter projects
   const filteredProjects =
@@ -899,7 +1120,7 @@ export default function App() {
 
               {/* Category Filter Pills */}
               <div className="portfolio-filters">
-                {['All', 'IoT & Connected Systems', 'Digital Media & Web Apps', 'Mobile Apps', 'Enterprise Web & AI', 'Game Development'].map((cat) => (
+                {['All', 'IoT & Connected Systems', 'Chatbots & Automation', 'Digital Media & Web Apps', 'Mobile Apps', 'Enterprise Web & AI', 'Game Development'].map((cat) => (
                   <button
                     key={cat}
                     onClick={() => setActiveCategory(cat === 'All' ? 'All' : cat)}
@@ -926,7 +1147,13 @@ export default function App() {
                 >
                   <div className="portfolio-art-box">
                     <div className="art-grid-overlay" />
-                    {project.logoUrl ? (
+                    {project.imageUrl ? (
+                      <img
+                        src={project.imageUrl}
+                        alt={project.name}
+                        className="art-project-preview-img"
+                      />
+                    ) : project.logoUrl ? (
                       <div className="art-logo-wrapper">
                         <img
                           src={project.logoUrl}
@@ -940,7 +1167,7 @@ export default function App() {
 
                     <div className="art-badge-top">
                       <span className="project-category-tag">{project.category}</span>
-                      <span className="project-index-num">0{idx + 1} / 06</span>
+                      <span className="project-index-num">0{idx + 1} / 0{filteredProjects.length}</span>
                     </div>
 
                     <div className="art-badge-bottom">
@@ -1677,6 +1904,16 @@ export default function App() {
                   ⚡ {selectedProject.metric} — {selectedProject.metricLabel}
                 </span>
 
+                {selectedProject.imageUrl && (
+                  <div className="modal-project-media">
+                    <img
+                      src={selectedProject.imageUrl}
+                      alt={selectedProject.name}
+                      className="modal-project-img"
+                    />
+                  </div>
+                )}
+
                 <div className="project-detail-section">
                   <h5>Technical Architecture & Challenge</h5>
                   <p>{selectedProject.fullDesc}</p>
@@ -1731,6 +1968,192 @@ export default function App() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* GROK-BOT FLOATING AI COPILOT (Requested by User) */}
+      <div className="grok-bot-container">
+        {/* Trigger Button with Radar Pulse */}
+        <button
+          onClick={() => setIsGrokOpen(!isGrokOpen)}
+          className={`grok-trigger-btn ${isGrokOpen ? 'active' : ''}`}
+          aria-label="Toggle GrokBot AI Copilot"
+          type="button"
+        >
+          <div className="grok-pulse-ring" />
+          <div className="grok-icon-box">
+            {isGrokOpen ? <X size={20} /> : <Bot size={22} />}
+          </div>
+          <div className="grok-trigger-text">
+            <span className="grok-trigger-title">Grok-Bot AI</span>
+            <span className="grok-trigger-status">
+              <span className="status-live-dot" /> Online
+            </span>
+          </div>
+        </button>
+
+        {/* Floating Chat Window */}
+        <AnimatePresence>
+          {isGrokOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: 24, scale: 0.94 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.94 }}
+              transition={{ duration: 0.25 }}
+              className="grok-window"
+            >
+              {/* Chat Header */}
+              <div className="grok-header">
+                <div className="grok-header-info">
+                  <div className="grok-avatar">
+                    <Bot size={20} />
+                    <span className="avatar-status-pip" />
+                  </div>
+                  <div>
+                    <div className="grok-header-title-row">
+                      <h4>Grok-Bot AI Copilot</h4>
+                      <span className="grok-chip">Custom LLM & Wearable IoT</span>
+                    </div>
+                    <p className="grok-header-desc">
+                      Trained on custom datasets, hardware firmware & vital monitoring
+                    </p>
+                  </div>
+                </div>
+                <div className="grok-header-actions">
+                  <button
+                    onClick={handleResetGrokChat}
+                    title="Reset Conversation"
+                    className="grok-tool-btn"
+                    type="button"
+                  >
+                    <RotateCcw size={15} />
+                  </button>
+                  <button
+                    onClick={() => setIsGrokOpen(false)}
+                    title="Close Chat"
+                    className="grok-tool-btn"
+                    type="button"
+                  >
+                    <X size={17} />
+                  </button>
+                </div>
+              </div>
+
+              {/* Chat Messages */}
+              <div className="grok-messages-wrap">
+                {grokMessages.map((msg) => (
+                  <div
+                    key={msg.id}
+                    className={`grok-msg-row ${msg.sender === 'user' ? 'msg-user' : 'msg-bot'}`}
+                  >
+                    {msg.sender === 'bot' && (
+                      <div className="grok-bot-pip">
+                        <Bot size={14} />
+                      </div>
+                    )}
+                    <div className="grok-msg-bubble">
+                      <div className="grok-msg-text">
+                        {msg.text.split('\n\n').map((paragraph, pIdx) => (
+                          <p key={pIdx} className="grok-paragraph">
+                            {paragraph.split('\n').map((line, lIdx) => (
+                              <React.Fragment key={lIdx}>
+                                {renderFormattedText(line)}
+                                {lIdx < paragraph.split('\n').length - 1 && <br />}
+                              </React.Fragment>
+                            ))}
+                          </p>
+                        ))}
+                      </div>
+
+                      {msg.actions && msg.actions.length > 0 && (
+                        <div className="grok-actions-grid">
+                          {msg.actions.map((act, aIdx) => (
+                            <button
+                              key={aIdx}
+                              onClick={() => handleGrokActionClick(act)}
+                              className="grok-action-chip"
+                              type="button"
+                            >
+                              <span>{act.label}</span>
+                              <ChevronRight size={13} />
+                            </button>
+                          ))}
+                        </div>
+                      )}
+
+                      <span className="grok-msg-time">{msg.time}</span>
+                    </div>
+                  </div>
+                ))}
+
+                {isGrokTyping && (
+                  <div className="grok-msg-row msg-bot">
+                    <div className="grok-bot-pip">
+                      <Bot size={14} />
+                    </div>
+                    <div className="grok-typing-bubble">
+                      <span className="dot" />
+                      <span className="dot" />
+                      <span className="dot" />
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Quick Prompt Bar */}
+              <div className="grok-prompt-bar">
+                <span className="prompt-label">Quick topics:</span>
+                <div className="prompt-scroll">
+                  <button
+                    onClick={() => handleGrokSend('Explain the hardware architecture and software monitoring system for smart necklaces and bands.')}
+                    className="quick-chip"
+                    type="button"
+                  >
+                    ⌚ Smart Necklaces & Bands
+                  </button>
+                  <button
+                    onClick={() => handleGrokSend('How do you train custom models on proprietary datasets like Grok?')}
+                    className="quick-chip"
+                    type="button"
+                  >
+                    🧬 Custom Dataset Training
+                  </button>
+                  <button
+                    onClick={() => handleGrokSend('What is the timeline and budget to build an MVP?')}
+                    className="quick-chip"
+                    type="button"
+                  >
+                    💰 MVP Cost & Timeline
+                  </button>
+                </div>
+              </div>
+
+              {/* Chat Input */}
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault()
+                  handleGrokSend()
+                }}
+                className="grok-input-form"
+              >
+                <input
+                  type="text"
+                  value={grokInput}
+                  onChange={(e) => setGrokInput(e.target.value)}
+                  placeholder="Ask about custom models, necklaces, bands..."
+                  className="grok-input-field"
+                />
+                <button
+                  type="submit"
+                  disabled={!grokInput.trim() || isGrokTyping}
+                  className="grok-send-btn"
+                  aria-label="Send Message"
+                >
+                  <Send size={15} />
+                </button>
+              </form>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   )
 }
